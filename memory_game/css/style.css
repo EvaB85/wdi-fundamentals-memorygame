@@ -38,6 +38,11 @@ a {
 	font-weight: 600;
 	font-size: 18px;
 	margin: 0px 20px;
+	border-bottom: 2px solid transparent;
+}
+
+a:hover {
+	 border-color: white;
 }
 
   /* --------- */
@@ -50,7 +55,7 @@ main {
 }
 
 p {
-	font-family: "Droid Serif", serif;	
+	font-family: "Droid Serif", serif;
 }
 
 
@@ -64,4 +69,22 @@ h2, h3 {
 
 img {
 	margin: 40px 8px;
+}
+
+footer {
+	text: uppercase;
+	padding: 0 20px;
+	background-color: #0D2C40;
+	color: white;
+	font-size: 14px;
+	letter-spacing: .08em;
+	font-weight: 500;
+	display: flex;
+	justify-content: space-around;
+
+}
+
+.name {
+	color: #F15B31;
+	font-weight: 700;
 }
