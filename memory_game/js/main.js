@@ -24,7 +24,8 @@ cardImage: "images/queen-of-hearts.png"
 ];
 
 var cardsInPlay = [];
-var checkForMatch = function(){
+
+var checkForMatch = function() {
   if (cardsInPlay.length === 2) {
     if (cardsInPlay[0] === cardsInPlay[1]) {
       alert("You found a match!");
@@ -32,22 +33,23 @@ var checkForMatch = function(){
       alert("Sorry try again!");
     }
   }
-}
-var flipCard = function(cardId) {
-  console.log("User flipped " + cards[cardId].rank);
-  cardsInPlay.push(cards[cardId].rank);
-  console.log("cardsInPlay", cardsInPlay);
-  console.log("ccardImage", cards[cardId].cardImage);
-  console.log("suit", cards[cardId].suit);
-
-  checkForMatch();
-  //
-  // var cardOne = cards[0];
-  // cardsInPlay.push(cardOne);
-  //
-  // var cardTwo = cards[2];
-  // cardsInPlay.push(cardTwo);
 };
 
-flipCard(0);
-flipCard(2);
+var flipCard = function() {
+  var cardId = this.getAttribute('data-id');
+  cardsInPlay.push(cards[cardId].rank);
+  this.setAttribute('src', cards[cardId].cardImage);
+  checkForMatch();
+};
+
+var createBoard = function() {
+  for (var i = 0; i < cards.length; i++) {
+    var cardElement = document.createElement('img');
+    cardElement.setAttribute('src', 'images/back.png');
+    cardElement.setAttribute('data-id', i);
+    cardElement.addEventListener('click', flipCard);
+    document.getElementById('game-board').appendChild(cardElement);
+  }
+};
+
+createBoard();
